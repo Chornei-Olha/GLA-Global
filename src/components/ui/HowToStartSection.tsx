@@ -66,7 +66,7 @@ export default function HowToStartSection() {
           </h2>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-6 font-inter ">
           {steps.map((step) => (
             <div key={step.id} className="relative bg-black rounded-[24px] p-6 sm:p-8 md:p-12">
               <div

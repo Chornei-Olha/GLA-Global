@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import emailjs from '@emailjs/browser';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -38,7 +38,7 @@ export default function PopupForm({ isOpen, onClose }: { isOpen: boolean; onClos
       );
 
       // 2️⃣ Отправляем в Telegram через наш API
-      const tgResp = await fetch('/api/send', {
+      const tgResp = await fetch('https://trust-call.com/send.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -76,6 +76,19 @@ export default function PopupForm({ isOpen, onClose }: { isOpen: boolean; onClos
       alert('❌ Сталася помилка. Спробуйте ще раз.');
     }
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
+  if (!isOpen) return null;
 
   return (
     <AnimatePresence>

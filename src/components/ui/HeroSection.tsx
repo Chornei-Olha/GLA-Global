@@ -63,7 +63,7 @@ export default function HeroSection() {
               <Button
                 variant="secondary"
                 size="lg"
-                className="animate-pulse-scale text-[16px] sm:text-[20px] font-medium px-6 sm:px-8 py-2 mt-5 sm:mt-2"
+                className="animate-pulse-scale text-[16px] sm:text-[20px] font-medium tracking-wider px-3 py-3"
                 onClick={() => setIsPopupOpen(true)}
               >
                 Отримати консультацію

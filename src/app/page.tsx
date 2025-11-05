@@ -13,6 +13,7 @@ import WhyTrustCall from '../components/ui/WhyTrustCall';
 import HowToStartSection from '../components/ui/HowToStartSection';
 import HeroSection from '../components/ui/HeroSection';
 import ReviewsCarousel from '../components/ui/ReviewsCarousel';
+import AboutSection from '../components/ui/AboutSection';
 
 interface PricingPlan {
   id: string;
@@ -310,6 +311,7 @@ const TrustCallLandingPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-black text-white font-inter overflow-x-hidden">
       <HeroSection />
+      <AboutSection />
       <WhyTrustCall />
       <HowToStartSection />
       <ProfitForm />
