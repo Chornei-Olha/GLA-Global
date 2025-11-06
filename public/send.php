@@ -1,10 +1,18 @@
 <?php
-header('Content-Type: application/json; charset=utf-8');
+/**
+ * Trust-Call.com — форма заявки в Telegram
+ * Автор: Impulse Studio
+ */
 
-// Разрешаем CORS, если нужно
+header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
+
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit;
+}
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
@@ -12,46 +20,38 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// Читаем тело запроса
 $input = file_get_contents('php://input');
 $data = json_decode($input, true);
 
-// Если данные пришли как обычная форма (form-data)
 if (!$data) {
     $data = $_POST;
 }
 
-$name = isset($data['name']) ? trim($data['name']) : '';
-$phone = isset($data['phone']) ? trim($data['phone']) : '';
-$email = isset($data['email']) ? trim($data['email']) : '';
-$message = isset($data['message']) ? trim($data['message']) : '';
+$name        = isset($data['name']) ? trim($data['name']) : '';
+$phone       = isset($data['phone']) ? trim($data['phone']) : '';
+$contact_way = isset($data['contact_way']) ? trim($data['contact_way']) : '';
+$tariff      = isset($data['tariff']) ? trim($data['tariff']) : '';
+$message     = isset($data['message']) ? trim($data['message']) : '';
 
-// Проверяем обязательные поля
-if (empty($phone) && empty($email)) {
+if (empty($name) || empty($phone)) {
     http_response_code(400);
-    echo json_encode(['error' => 'Phone or email required']);
+    echo json_encode(['error' => 'Ім’я та телефон є обов’язковими']);
     exit;
 }
 
-// ⚠️ Укажи свои переменные
-$BOT_TOKEN = getenv('BOT_TOKEN') ?: 'ТВОЙ_БОТ_ТОКЕН';
-$CHAT_ID   = getenv('CHAT_ID') ?: 'ТВОЙ_CHAT_ID';
+$BOT_TOKEN = '6749538664:AAGZ4A1mhwRPDMLx9F26g5Xf0CrH6XLb6B0';
+$CHAT_ID   = '-1002402429379';
 
-if (!$BOT_TOKEN || !$CHAT_ID) {
-    error_log('❌ Missing BOT_TOKEN or CHAT_ID');
-    http_response_code(500);
-    echo json_encode(['error' => 'BOT_TOKEN and CHAT_ID must be set']);
-    exit;
+$text  = "📩 <b>Нова заявка з сайту Trust-Call</b>\n\n";
+$text .= "👤 <b>Ім’я:</b> " . htmlspecialchars($name) . "\n";
+$text .= "📞 <b>Телефон:</b> " . htmlspecialchars($phone) . "\n";
+$text .= "💬 <b>Як зручно зв’язатись:</b> " . ($contact_way ?: '-') . "\n";
+$text .= "💼 <b>Обраний тариф:</b> " . ($tariff ?: '-') . "\n";
+if (!empty($message)) {
+    $text .= "📝 <b>Повідомлення:</b> " . htmlspecialchars($message) . "\n";
 }
+$text .= "\n🔗 trust-call.com";
 
-$text = "🔥 <b>Нова заявка з сайту</b>\n"
-      . "👤 <b>Ім’я:</b> " . ($name ?: '-') . "\n"
-      . "📞 <b>Телефон:</b> " . ($phone ?: '-') . "\n"
-      . "✉️ <b>Email:</b> " . ($email ?: '-') . "\n"
-      . "💬 <b>Повідомлення:</b> " . ($message ?: '-') . "\n"
-      . "🔗 trust-call.com";
-
-// Отправка запроса в Telegram
 $url = "https://api.telegram.org/bot$BOT_TOKEN/sendMessage";
 $postData = [
     'chat_id' => $CHAT_ID,
@@ -69,20 +69,20 @@ curl_setopt_array($ch, [
     CURLOPT_POSTFIELDS => json_encode($postData)
 ]);
 
-$response = curl_exec($ch);
-$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+$response  = curl_exec($ch);
+$httpCode  = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 
-// Обработка ответа
 $respData = json_decode($response, true);
 
 if ($httpCode !== 200 || empty($respData['ok'])) {
     http_response_code(502);
     echo json_encode([
-        'error' => 'Telegram send error',
+        'error' => 'Помилка при відправленні у Telegram',
         'details' => $respData
     ]);
     exit;
 }
 
-echo json_encode(['ok' => true]);
+echo json_encode(['ok' => true, 'message' => 'Заявка успішно відправлена!']);
+?>
