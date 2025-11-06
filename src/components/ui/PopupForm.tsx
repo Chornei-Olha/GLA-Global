@@ -39,7 +39,7 @@ export default function PopupForm({ isOpen, onClose }: { isOpen: boolean; onClos
       );
 
       // 2️⃣ Отправляем в Telegram через наш API
-      const tgResp = await fetch('https://trust-call.com/send.php', {
+      const tgResp = await fetch('https://trust-call.vercel.app/send.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
