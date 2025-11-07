@@ -9,8 +9,8 @@ export const viewport = {
 };
 
 export const metadata = {
-  title: 'TRUST-CALL',
-  description: 'Аутсорсинговий кол-центр для товарного бізнесу',
+  title: 'GLA',
+  description: 'GLA',
   icons: {
     icon: [{ url: '/favicon-v2.ico' }],
   },
@@ -22,10 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <GoogleTagManager gtmId="GTM-NVN68TMK" />
-      <GoogleAnalytics gaId="G-1P3FEHDLW" />
-
+    <html lang="ua">
       <body>
         {children}
         <script

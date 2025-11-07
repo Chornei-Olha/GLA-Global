@@ -41,6 +41,8 @@ const ProfitForm = () => {
         body: JSON.stringify({
           name: formData.name,
           phone: `+380 ${formData.phone}`,
+          contact_way: '', // 👈 можно передать пусто, если в форме нет
+          tariff: '', // 👈 тоже самое
           message: 'Заявка з форми ProfitForm',
         }),
       });
