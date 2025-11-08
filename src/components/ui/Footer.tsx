@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="w-full bg-[#E9F6F6]">
       {/* Верхняя часть */}
       <div className="text-center py-16 px-4">
-        <h2 className="text-3xl md:text-4xl font-semibold text-[#2D3142] mb-6">
+        <h2 className="text-3xl md:text-4xl font-semibold text-[#2E334E] mb-6">
           Become a Member of CLA Group
         </h2>
         <p className="max-w-2xl mx-auto text-lg text-gray-700 leading-relaxed">
@@ -18,17 +18,17 @@ export default function Footer() {
 
         <button
           onClick={() => alert('Open contact form')}
-          className="mt-8 bg-[#2D3142] text-white text-lg font-medium px-8 py-3 rounded-md hover:bg-[#3E4258] transition"
+          className="mt-8 bg-[#2E334E] text-white text-lg font-medium px-8 py-3 rounded-md hover:bg-[#3E4258] transition"
         >
           Join GLA Group
         </button>
       </div>
 
       {/* Наклонная граница */}
-      {/* <div className="w-full h-20 bg-[#2D3142] rotate-[2deg] origin-top"></div> */}
+      {/* <div className="w-full h-20 bg-[#2E334E] rotate-[2deg] origin-top"></div> */}
 
       {/* Нижняя часть футера */}
-      <div className="bg-[#2D3142] text-white px-6 md:px-12 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="bg-[#2E334E] text-white px-6 md:px-12 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Логотип */}
         <div className="flex items-center gap-2">
           <div className="relative">

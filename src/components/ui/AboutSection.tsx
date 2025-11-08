@@ -2,7 +2,7 @@ export default function AboutSection() {
   return (
     <section className="bg-white flex flex-col items-center justify-center text-center px-6 sm:px-10 lg:px-32 xl:px-48 py-16 sm:py-20 lg:py-28">
       <h2
-        className="text-[28px] sm:text-[32px] lg:text-[36px] font-normal text-[#333A56] mb-8 sm:mb-10"
+        className="text-[28px] sm:text-[32px] lg:text-[36px] font-normal text-[#2E334E] mb-8 sm:mb-10"
         style={{ fontFamily: 'Georgia, serif' }}
       >
         For Those Who Drive Growth

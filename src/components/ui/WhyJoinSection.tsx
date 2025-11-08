@@ -37,7 +37,7 @@ export default function WhyJoinSection() {
     <section className="bg-[#f9f9f9] px-6 sm:px-10 lg:px-24 xl:px-40 py-20 text-center flex flex-col items-center">
       {/* Заголовок */}
       <h2
-        className="text-[28px] sm:text-[32px] lg:text-[36px] text-[#333A56] font-normal mb-16"
+        className="text-[28px] sm:text-[32px] lg:text-[36px] text-[#2E334E] font-normal mb-16"
         style={{ fontFamily: 'Georgia, serif' }}
       >
         Why Join CLA Global?
@@ -65,13 +65,13 @@ export default function WhyJoinSection() {
           <div key={idx} className="flex flex-col items-center">
             <div className={`h-[4px] w-20 ${item.color} mb-5`} />
             <h3
-              className="text-[22px] sm:text-[24px] font-normal text-[#333A56] mb-4"
+              className="text-[22px] sm:text-[24px] font-normal text-[#2E334E] mb-4"
               style={{ fontFamily: 'Georgia, serif' }}
             >
               {item.title}
             </h3>
             <p
-              className="text-[16px] sm:text-[18px] text-[#333A56] leading-relaxed"
+              className="text-[16px] sm:text-[18px] text-[black] leading-relaxed"
               style={{ fontFamily: 'MuseoSans, sans-serif' }}
             >
               {item.text}
@@ -81,7 +81,7 @@ export default function WhyJoinSection() {
       </div>
 
       {/* Кнопка */}
-      <button className="bg-[#333A56] text-white text-[18px] font-semibold px-8 py-3 rounded-md hover:bg-[#2b314a] transition-all">
+      <button className="bg-[#2E334E] text-white text-[18px] font-semibold px-8 py-3 rounded-md hover:bg-[#2b314a] transition-all">
         Explore Member Benefits
       </button>
 
@@ -97,13 +97,13 @@ export default function WhyJoinSection() {
         ].map((item, i) => (
           <div key={i} className="flex flex-col items-center">
             <div
-              className="text-[42px] sm:text-[52px] font-semibold text-[#333A56]"
+              className="text-[42px] sm:text-[52px] font-semibold text-[#2E334E]"
               style={{ fontFamily: 'Georgia, serif' }}
             >
               {item.value}+
             </div>
             <div
-              className="text-[16px] sm:text-[18px] text-[#333A56]"
+              className="text-[16px] sm:text-[18px] text-[#2E334E]"
               style={{ fontFamily: 'MuseoSans, sans-serif' }}
             >
               {item.label}
@@ -123,13 +123,13 @@ export default function WhyJoinSection() {
 
         <div className="w-full lg:w-1/2 text-left">
           <h3
-            className="text-[26px] sm:text-[30px] font-normal text-[#333A56] mb-4"
+            className="text-[26px] sm:text-[30px] font-normal text-[#2E334E] mb-4"
             style={{ fontFamily: 'Georgia, serif' }}
           >
             About Our Network
           </h3>
           <p
-            className="text-[16px] sm:text-[18px] text-[#333A56] leading-relaxed"
+            className="text-[16px] sm:text-[18px] text-[#2E334E] leading-relaxed"
             style={{ fontFamily: 'MuseoSans, sans-serif' }}
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae felis ut turpis

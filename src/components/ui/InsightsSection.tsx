@@ -49,13 +49,13 @@ export default function InsightsSection() {
     <section className="bg-white px-6 sm:px-10 lg:px-20 xl:px-40 py-20 text-center">
       {/* Заголовок */}
       <h2
-        className="text-[28px] sm:text-[32px] lg:text-[36px] text-[#333A56] font-normal mb-6"
+        className="text-[28px] sm:text-[32px] lg:text-[36px] text-[#2E334E] font-normal mb-6"
         style={{ fontFamily: 'Georgia, serif' }}
       >
         Insights and Client Case Studies
       </h2>
       <p
-        className="text-[16px] sm:text-[18px] text-[#333A56] max-w-3xl mx-auto mb-12 leading-relaxed"
+        className="text-[16px] sm:text-[18px] text-[black] max-w-3xl mx-auto mb-12 leading-relaxed"
         style={{ fontFamily: 'MuseoSans, sans-serif' }}
       >
         Explore our insights and case studies to see how CLA Global member firms help businesses and
@@ -106,13 +106,13 @@ export default function InsightsSection() {
                 {/* Верхняя часть (текст + дата) */}
                 <div className="p-6 flex flex-col justify-start">
                   <p
-                    className="text-[15px] text-[#333A56] mb-2"
+                    className="text-[15px] text-[black] mb-2"
                     style={{ fontFamily: 'MuseoSans, sans-serif' }}
                   >
                     {card.date}
                   </p>
                   <h3
-                    className="text-[20px] sm:text-[22px] font-normal text-[#333A56] leading-snug"
+                    className="text-[20px] sm:text-[22px] font-normal text-[#2E334E] leading-snug"
                     style={{ fontFamily: 'Georgia, serif' }}
                   >
                     {card.title}

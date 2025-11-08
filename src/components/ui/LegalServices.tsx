@@ -297,7 +297,7 @@ export default function LegalServices() {
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
             <a
               href="#contact"
-              className="inline-block bg-blue-700 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-800 transition"
+              className="inline-block bg-[#fec104] text-black px-6 py-3 rounded-full border border-white/20 font-medium hover:bg-white/5 hover:text-white transition"
             >
               Отримати консультацію
             </a>
@@ -323,7 +323,7 @@ export default function LegalServices() {
                 onClick={() => toggleService(s.id)}
                 whileHover={{ translateY: -4 }}
                 className={`text-left p-6 rounded-2xl shadow-md bg-white border transition focus:outline-none ${
-                  selected === s.id ? 'ring-2 ring-blue-600 scale-[1.01]' : ''
+                  selected === s.id ? 'ring-2 ring-[blue-600] scale-[1.01]' : ''
                 }`}
               >
                 <div className="flex items-start gap-4">
@@ -333,7 +333,7 @@ export default function LegalServices() {
                     className="w-16 h-16 rounded-lg object-cover flex-shrink-0"
                   />
                   <div>
-                    <h3 className="text-xl font-semibold text-blue-800">{s.title}</h3>
+                    <h3 className="text-xl font-semibold text-[#2E334E]">{s.title}</h3>
                     <p className="mt-2 text-gray-600 line-clamp-3">
                       {/* short preview - first 120 chars */}
                       {s.details.replace(/\s+/g, ' ').slice(0, 150)}...
@@ -435,19 +435,19 @@ export default function LegalServices() {
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">Чому обирають нас</h2>
           <div className="grid gap-6 md:grid-cols-3">
-            <div className="p-6 bg-blue-700/40 rounded-2xl">
+            <div className="p-6 bg-white/30 rounded-2xl">
               <h3 className="text-xl font-semibold mb-2">10+ років досвіду</h3>
               <p className="text-gray-200">
                 Ми розуміємо потреби бізнесу та пропонуємо дієві рішення.
               </p>
             </div>
-            <div className="p-6 bg-blue-700/40 rounded-2xl">
+            <div className="p-6 bg-white/30 rounded-2xl">
               <h3 className="text-xl font-semibold mb-2">Комплексний підхід</h3>
               <p className="text-gray-200">
                 Від аналізу документів до судового захисту — повний юридичний супровід.
               </p>
             </div>
-            <div className="p-6 bg-blue-700/40 rounded-2xl">
+            <div className="p-6 bg-white/30 rounded-2xl">
               <h3 className="text-xl font-semibold mb-2">Індивідуальні рішення</h3>
               <p className="text-gray-200">
                 Підходимо до кожного клієнта з урахуванням його особливостей.
